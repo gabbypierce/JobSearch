@@ -1,11 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
     namespace = "edu.quinnipiac.ser210.jobsearch"
     compileSdk = 34
+    buildFeatures {
+        dataBinding = true
+    }
 
     defaultConfig {
         applicationId = "edu.quinnipiac.ser210.jobsearch"
