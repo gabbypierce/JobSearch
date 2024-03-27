@@ -1,5 +1,5 @@
 <resources>
-    <string name="header">Indeed Job Search</string>
+    <string name="header">Job Search</string>
 
     <string-array name="locations">
         <item>Location</item>

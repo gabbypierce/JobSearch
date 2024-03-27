@@ -2,6 +2,7 @@ package edu.quinnipiac.ser210.jobsearch
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -16,16 +17,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setSupportActionBar(findViewById(R.id.materialToolbar))
-        val navigationView = findViewById<NavigationView>(R.id.navigationView)
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.materialToolbar)
+        setSupportActionBar(toolbar)
+    }
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
 
-        val config = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController!!, config)
-
-        findViewById<NavigationView>(R.id.navigationView).setupWithNavController(navController!!)
-
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val retValue = super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.main, menu)
+        return retValue
     }
 }
