@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/locationFragment"
-        android:name="edu.quinnipiac.ser210.jobsearch.locationFragment"
+        android:name="edu.quinnipiac.ser210.jobsearch.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
 
