@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="edu.quinnipiac.ser210.jobsearch.homeFragment"
+        android:name="edu.quinnipiac.ser210.jobsearch.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/allJobFragment2"
-        android:name="edu.quinnipiac.ser210.jobsearch.allJobFragment"
+        android:name="edu.quinnipiac.ser210.jobsearch.AllJobFragment"
         android:label="fragment_all_job"
         tools:layout="@layout/fragment_all_job" />
 </navigation>
