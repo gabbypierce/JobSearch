@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/favoriteFragment"
+        android:id="@+id/favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="*Favorite*"
+        android:icon="@drawable/ic_action_fav"
+        android:title="*favorite*"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_setting"
+        android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@mipmap/ic_launcher_round"
-        android:title="*Settings*"
+        android:icon="@drawable/ic_menu_send"
+        android:title="*send*"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_share"
+
+        android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@mipmap/ic_launcher"
-        android:title="*Share*"
-        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"
-        app:showAsAction="ifRoom" />
+        android:icon="@drawable/ic_menu_share"
+        android:title="*share*"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"/>
 </menu>

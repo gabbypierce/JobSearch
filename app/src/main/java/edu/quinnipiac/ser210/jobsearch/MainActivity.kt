@@ -14,20 +14,33 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import androidx.lifecycle.ViewModelProvider
+import android.view.Menu
 
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var viewModel: JobsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.materialToolbar)
+        setSupportActionBar(toolbar)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
+
+        val config = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController!!, config)
+
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val retValue = super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.main, menu)
+        return retValue
     }
 }

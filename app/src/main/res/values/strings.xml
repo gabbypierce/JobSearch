@@ -3,9 +3,8 @@
 
     <string-array name="locations">
         <item>Location</item>
-        <item>Amsterdam </item>
-        <item>Colorodo</item>
-        <item>Alaska</item>
-        <item>Virginia</item>
+        <item>Chicago, IL </item>
+        <item>New York, NY</item>
+        <item>Miami, FL</item>
     </string-array>
 </resources>

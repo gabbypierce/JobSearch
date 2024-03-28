@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_locationFragment"
-            app:destination="@id/locationFragment" />
+            app:destination="@id/locationFragment" >
+            <argument
+                android:name="location"
+                app:argType="string"/>
+        </action>
         <action
             android:id="@+id/action_homeFragment_to_allJobFragment2"
             app:destination="@id/allJobFragment2" />
@@ -25,7 +29,11 @@
 
     <fragment
         android:id="@+id/allJobFragment2"
-        android:name="edu.quinnipiac.ser210.jobsearch.allJobFragment"
+        android:name="edu.quinnipiac.ser210.jobsearch.AllJobFragment"
         android:label="fragment_all_job"
-        tools:layout="@layout/fragment_all_job" />
+        tools:layout="@layout/fragment_all_job" >
+        <action
+            android:id="@+id/action_allJobFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

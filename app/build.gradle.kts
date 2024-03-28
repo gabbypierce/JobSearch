@@ -3,7 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("androidx.navigation.safeargs")
-    id("kotlin-parcelize")
 }
 
 android {
@@ -39,12 +38,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
@@ -58,6 +59,8 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
     implementation ("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+
 
 
 }

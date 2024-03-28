@@ -25,11 +25,13 @@ class LocationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_location, container, false)
 
-        // Initialize ViewModel
-        viewModel = ViewModelProvider(this)[JobsViewModel::class.java]
+        // Inflate the layout for this fragment
+        val repository = JobsRepository() // Initialize your repository (if needed here)
+        val factory = JobsViewModelFactory(repository)
+
+        // Retrieve the ViewModel
+        viewModel = ViewModelProvider(this, factory)[JobsViewModel::class.java]
 
         // Observe ViewModel LiveData
         viewModel.searchJobs("YourCompanyName", null, null).observe(viewLifecycleOwner, Observer { result ->
@@ -48,7 +50,7 @@ class LocationFragment : Fragment() {
             }
         })
 
-        return view
+        return inflater.inflate(R.layout.fragment_all_job, container, false)
     }
 
     private fun updateUI(jobList: JobListResponse) {
@@ -62,4 +64,31 @@ class LocationFragment : Fragment() {
             view.findViewById<TextView>(R.id.tvLocation).text = "Location: ${job.location}"
         }
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val location = arguments?.getString("location")
+
+        // Assuming you have already initialized your viewModel in onCreateView or via property delegation
+
+        // Now, observe the LiveData from the ViewModel.
+        viewModel.searchJobs(location ?: "companyName", null, null).observe(viewLifecycleOwner, Observer { result ->
+            when (result) {
+                is Result.Loading -> {
+                    // Show loading indicator
+                }
+                is Result.Success -> {
+                    // Update your UI with the data fetched
+                    updateUI(result.data as JobListResponse)
+                    // Use 'jobs' to update your UI
+                }
+                is Result.Error -> {
+                    // Handle error, perhaps show a message or a retry button
+                    Toast.makeText(context, "Error fetching data", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+    }
+
 }
