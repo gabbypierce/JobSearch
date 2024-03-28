@@ -2,6 +2,7 @@ package edu.quinnipiac.ser210.jobsearch
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.widget.Toolbar
@@ -14,10 +15,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import androidx.lifecycle.ViewModelProvider
-import android.view.Menu
+import androidx.navigation.ui.setupWithNavController
+
 
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var viewModel: JobsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,4 +46,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return retValue
     }
+
+
+
 }
